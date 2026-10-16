@@ -36,8 +36,9 @@ export @logscale, @logunit, @dB, @B, @cNp, @Np
 export Level, Gain
 export uparse
 
+# Public, but not exported to avoid name clashes (`public` requires Julia ≥ 1.11).
 @static if VERSION ≥ v"1.11.0-DEV.469"
-    eval(Meta.parse("public withvalue"))
+    eval(Meta.parse("public numtype, withvalue"))
 end
 
 const unitmodules = Vector{Module}()
